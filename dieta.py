@@ -1,22 +1,23 @@
 from funçoesdieta import *
+
 def alimentodia(alimento):#função que insere os alimentos em seus respectivos dias
     global dia1,dia2,dia3,dia4,dia5,dia6,dia7
     if alimento[0:5] == '06/04':
-        dia1+=alimento+'\n'
+        dia1+=alimento+ '\n'
     elif alimento[0:5] == '07/04':
-        dia2+=alimento+'\n'
+        dia2+=alimento+ '\n'
     elif alimento[0:5] == '08/04':
-        dia3+=alimento+'\n'
+        dia3+=alimento+ '\n'
     elif alimento[0:5] == '09/04':
-        dia4+=alimento+'\n'
+        dia4+=alimento+ '\n'
     elif alimento[0:5] == '10/04':
-        dia5+=alimento+'\n'
+        dia5+=alimento+ '\n'
     elif alimento[0:5] == '11/04':
-        dia6+=alimento+'\n'
+        dia6+=alimento+ '\n'
     elif alimento[0:5] == '12/04':
-        dia7+=alimento+'\n'
+        dia7+=alimento+ '\n'
+    return dia1,dia2,dia3,dia4,dia5,dia6,dia7
         
-TMB = 0
 alimentos = open("alimentos.csv","r+",encoding = "utf-8")
 ficha_pessoa = open("usuário.csv","r+",encoding = "utf-8")
 ficha_pessoa = ficha_pessoa.read()
@@ -25,18 +26,7 @@ dados_pessoa = ficha_pessoa.split('\n', 10)[1]#comando que separa as informaçõ
 dados_pessoa = dados_pessoa.split(",")
 alimentos = alimentos.read()
 alimentos = alimentos.split('\n',1)[1]#comando que separa os alimentos em suas respectivas linhas
-
-
-
 lista_dias=dieta.split('\n')
-alimento_1=lista_dias[0]
-alimento_2=lista_dias[1]
-alimento_3=lista_dias[2]
-alimento_4=lista_dias[3]
-alimento_5=lista_dias[4]
-alimento_6=lista_dias[5]
-alimento_7=lista_dias[6]
-alimento_8=lista_dias[7]
 
 #lista dos dias
 dia1 = []
@@ -48,16 +38,9 @@ dia6 = []
 dia7 = []
 
 
-#inserção do alimento na lista
-alimentodia(alimento_1)
-alimentodia(alimento_2)
-alimentodia(alimento_3)
-alimentodia(alimento_4)
-alimentodia(alimento_5)
-alimentodia(alimento_6)
-alimentodia(alimento_7)
-alimentodia(alimento_8)
-
+#inserção de alimento nas listas dos dias 
+for alimento in lista_dias:
+    alimentodia(alimento)
 print(''.join(dia1))
 print(''.join(dia2))
 
@@ -81,4 +64,5 @@ print(dieta)
     
 TMB = FGBenedict(sexo,peso,altura,idade)
 TMB = grau_atividade(TMB,fator)
+
 print(TMB)
