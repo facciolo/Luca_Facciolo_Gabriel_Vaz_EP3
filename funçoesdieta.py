@@ -41,4 +41,26 @@ def alimentodia(alimento):#função que insere os alimentos em seus respectivos 
         dia6+=alimento+'\n'
     elif alimento[0:5] == '12/04':
         dia7+=alimento+'\n'
-        
+    return dia1,dia2,dia3,dia4,dia5,dia6,dia7
+def compara_alimento(lista_dias,alimentos):
+    for alimento in lista_dias:
+        None
+    for alimento2 in alimentos:
+        None
+    if alimento[0:5] == alimento2[0:5]:
+        return alimento2
+
+def IMC(peso,altura):
+    return (1.3*peso)/(altura**2.5)
+
+def catalogo_alimentos(catalogo,alimentos):
+    for termo in alimentos:
+        valores = []
+        linha = []
+        linha = termo.split(',')
+        for numero in linha[1:]:
+            valores.append(float(numero))
+        catalogo[linha[0]] = valores
+    return catalogo
+    
+    

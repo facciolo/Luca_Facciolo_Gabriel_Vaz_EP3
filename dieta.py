@@ -16,17 +16,22 @@ def alimentodia(alimento):#função que insere os alimentos em seus respectivos 
         dia6+=alimento+ '\n'
     elif alimento[0:5] == '12/04':
         dia7+=alimento+ '\n'
-    return dia1,dia2,dia3,dia4,dia5,dia6,dia7
+    return dia1,dia2,dia3,dia4,dia5,dia6,dia7    
+        
         
 alimentos = open("alimentos.csv","r+",encoding = "utf-8")
 ficha_pessoa = open("usuário.csv","r+",encoding = "utf-8")
 ficha_pessoa = ficha_pessoa.read()
 dieta = ficha_pessoa.split('\n', 3)[3]
+lista_dias=dieta.split('\n')
 dados_pessoa = ficha_pessoa.split('\n', 10)[1]#comando que separa as informações pessoais do individuo
 dados_pessoa = dados_pessoa.split(",")
 alimentos = alimentos.read()
 alimentos = alimentos.split('\n',1)[1]#comando que separa os alimentos em suas respectivas linhas
-lista_dias=dieta.split('\n')
+alimentos = alimentos.split('\n')
+catalogo = dict()
+
+
 
 #lista dos dias
 dia1 = []
@@ -38,13 +43,6 @@ dia6 = []
 dia7 = []
 
 
-#inserção de alimento nas listas dos dias 
-for alimento in lista_dias:
-    alimentodia(alimento)
-print(''.join(dia1))
-print(''.join(dia2))
-
-
 #Definição dos parametros pessoais utilizados 
 nome = dados_pessoa[0]
 idade = int(dados_pessoa[1])
@@ -54,15 +52,29 @@ altura = float(dados_pessoa[4])
 fator = dados_pessoa[5]
 
 
-print(dados_pessoa)
+'''print(dados_pessoa)
 print("TESTE")
 print(dieta)
-#print(alimentos)
+print(alimentos)
+print(lista_dias)
+print(TMB)
+print(IMC)
+'''
 
 
 
-    
+#atribuindo valores da taxa metabolica    
 TMB = FGBenedict(sexo,peso,altura,idade)
 TMB = grau_atividade(TMB,fator)
+IMC = IMC(peso,altura)
 
-print(TMB)
+#inserção de alimento nas listas dos dias 
+for alimento in lista_dias:
+    alimentodia(alimento)
+print(''.join(dia1))
+print(''.join(dia2))
+
+
+#compara_alimento(lista_dias,alimentos)#deveria retornar todos valores(calorias,proteinas e gorduras)
+catalogo_alimentos(catalogo,alimentos)
+print(catalogo)
