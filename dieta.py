@@ -89,15 +89,24 @@ print(dia1[2:13:3])'''
 catalogo_alimentos(catalogo,alimentos)
 
 for i in range(1,13,3):#primeiro dia
-    b = (float(catalogo[dia1[i]][1])*float((dia1[i+1]))/100)#separa apenas calorias
-    #codigo que soma cada membro de b
-    c = (float(catalogo[dia1[i]][2])*float((dia1[i+1]))/100)#separa apenas proteinas
-    #codigo que soma cada membro de b
-    d = (float(catalogo[dia1[i]][3])*float((dia1[i+1]))/100)#separa apenas carboidratos
-    #codigo que soma cada membro de b
-    e = (float(catalogo[dia1[i]][4])*float((dia1[i+1]))/100)#separa apenas gorduras
-    
+    calorias1 = (float(catalogo[dia1[i]][1])*float((dia1[i+1]))/100)#separa apenas calorias
+    #codigo que soma cada membro
+    proteinas1 = (float(catalogo[dia1[i]][2])*float((dia1[i+1]))/100)#separa apenas proteinas
+    #codigo que soma cada membro
+    carboidratos1 = (float(catalogo[dia1[i]][3])*float((dia1[i+1]))/100)#separa apenas carboidratos
+    #codigo que soma cada membro
+    gorduras1 = (float(catalogo[dia1[i]][4])*float((dia1[i+1]))/100)#separa apenas gorduras
+    #codigo que soma cada membro
 
+
+'''Infelizmente, por falta de planejamento temporal, nao conseguimos acabar o código.
+mas nossa ideia seria de replicar o codigo acima(91-99) para todos os dias e plotar num
+grafico comparando as calorias de cada dia com o TMB encontrado de acordo com os
+dados pessoais do usuário.
+gerariamos outro grafico com proteinas , carboidratos e gorduras.
+Após isso, gerariamos um relatório padronizado em que as unicas variaveis seriam os
+números. Dependendo do IMC do usuário, seria inserido no relatório um texto generalizado
+dependendo da situação da pessoa e concluiriamos o projeto.'''
 
     
         
